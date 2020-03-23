@@ -1,0 +1,17 @@
+
+.logo {
+	text-align: center;
+	margin-top: 10rpx;
+}
+.logo image {
+	height: 190rpx;
+	width: 190rpx;
+}
+.no-result {
+	margin: 10rpx 0;
+	text-align: center;
+}
+.tip {
+	margin-left: 30rpx;
+}
+

@@ -1,0 +1,6 @@
+
+.not-more {
+	text-align: center;
+	margin: 10rpx 0;
+}
+

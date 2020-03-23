@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/article",
+    "pages/articles/articles",
+    "pages/list/list",
+    "pages/search/search"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "uni-app",
+    "titleBarColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {
+    "bottom-nav": "/components/BottomNav",
+    "cu-custom": "/colorui/components/cu-custom",
+    "post-card": "/components/post-card"
+  }
+}

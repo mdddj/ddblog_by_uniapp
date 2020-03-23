@@ -1,0 +1,1 @@
+<view><cu-custom vue-id="7dab590b-1" bgColor="bg-gradual-pink" isBack="{{true}}" onVueInit="__l"><view slot="backText"></view><view slot="content">{{detail?detail.title:'详情'}}</view></cu-custom><jyf-parser vue-id="7dab590b-2" id="post" html="{{html}}" onVueInit="__l">加载中...</jyf-parser></view>

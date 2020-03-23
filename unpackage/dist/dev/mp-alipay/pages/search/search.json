@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom",
+    "post-card": "/components/post-card",
+    "bottom-nav": "/components/BottomNav"
+  }
+}

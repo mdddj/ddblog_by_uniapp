@@ -1,0 +1,1 @@
+<view><bottom-nav vue-id="1" bind:__l="__l"></bottom-nav></view>
