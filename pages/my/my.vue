@@ -1,15 +1,16 @@
 <template>
 	<view>
 		<!-- 头部基本信息 -->
-		<view v-if="config!=null" class='UCenter-bg' v-bind:style="[{backgroundImage:'url('+app_bg+')'}]">
-			<button v-if="!user_info" class="cu-btn" @tap="userLoginTap()">用户登入</button>
-		</view>
-		<view class="u-i" style="height: 400rpx;">
-			<image v-if="config!=null" v-bind:src="config.logoSrc" class='png cu-avatar round lg' mode='widthFix'></image>
-			<view style="padding-top: 65rpx;padding-left: 35rpx;">
+		<view class="UCenter-bg" style="height: 500rpx;">
+			<image v-if="config!=null" v-bind:src="config.logoSrc" class='png cu-avatar round' style="width: 150rpx;height: 150rpx;border: 1rpx solid gray;"
+			 mode='widthFix'></image>
+			<view style="padding-top: 65rpx;">
 				<view>
-					<text v-if="user_info!=null">{{user_info.nickname ? user_info.nickname : '用户@'+user_info.username}}</text>
+					<text v-if="config!=null" style="font-size: 30rpx;color: #000000;">{{config.title}}</text>
 				</view>
+			</view>
+			<view style="margin-top: 20rpx;">
+				<text v-if="config!=null" style="font-size: 25rpx;color: grey;">{{config.description}}</text>
 			</view>
 		</view>
 		<!-- 头部基本信息END-->
@@ -19,22 +20,22 @@
 			<view class="flex flex-sub flex-direction solid-right">
 				<view class="text-xxl text-orange">{{countData.articleCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-news"></text> 博客</view>
+					<text class="cuIcon-news" style="margin-right: 5rpx;"></text> 博客</view>
 			</view>
 			<view class="flex flex-sub flex-direction solid-right">
 				<view class="text-xxl text-blue">{{countData.categoryCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-file"></text> 分类</view>
+					<text class="cuIcon-file" style="margin-right: 5rpx;"></text> 分类</view>
 			</view>
 			<view class="flex flex-sub flex-direction solid-right">
 				<view class="text-xxl text-green">{{countData.tagCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-tag"></text> 标签</view>
+					<text class="cuIcon-tag" style="margin-right: 5rpx;"></text> 标签</view>
 			</view>
 			<view class="flex flex-sub flex-direction">
 				<view class="text-xxl text-green">{{countData.linkCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-link"></text> 友链</view>
+					<text class="cuIcon-link" style="margin-right: 5rpx;"></text> 友链</view>
 			</view>
 		</view>
 		<!-- 博客数据end -->
@@ -60,7 +61,7 @@
 			<!-- 更新日志 -->
 			<view class="cu-item arrow" @tap="gotoTextPage('log','日志')">
 				<view class="content">
-					<text class="cuIcon-info text-grey"></text>
+					<text class="cuIcon-new text-grey"></text>
 					<text class="text-grey">更新记录</text>
 				</view>
 			</view>
@@ -92,13 +93,13 @@
 				countData: {},
 				app_version: this.app_version,
 				app_bg: 'http://picbed.demo.saintic.com/static/upload/huang/2020/04/02/15858063094785930.jpg',
-				user_info:null
+				user_info: null
 			}
 		},
 		onLoad() {
 			this.config = config
 			this.loadCountData();
-			this.getCacheUserInfo();// 从缓存获取已登入用户信息
+			this.getCacheUserInfo(); // 从缓存获取已登入用户信息
 		},
 		methods: {
 
@@ -170,7 +171,6 @@
 		align-items: center;
 		color: #fff;
 		font-weight: 300;
-		text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 	}
 
 	.UCenter-bg::after {
@@ -186,22 +186,8 @@
 
 	}
 
-	.u-i text {
-		opacity: 0.8;
-	}
-	.u-i{
-		position: relative;
-	}
 
-	.u-i image {
-		width: 98rpx;
-		height: 98rpx;
-		position: absolute;
-		top: -48rpx;
-		left: 35rpx;
-		border: 1rpx solid white;
-		z-index: 99;
-	}
+
 
 	.UCenter-bg .gif-wave {
 		position: absolute;

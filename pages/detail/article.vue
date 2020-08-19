@@ -2,9 +2,10 @@
 	<view>
 		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 			<block slot="backText"></block>
+			<block slot="content">详情</block>
 			<block slot="content"></block>
 		</cu-custom>
-		<view class="content-wrap" :style="[{padding:'0 '+pmWidth+'px'}]">
+		<view class="content-wrap" :style="[{padding:'0 '+pmWidth+'rpx'}]" style="padding: 10rpx;">
 			<view class="content-title">{{detail ? detail.title : ''}}</view>
 			<view class="medium-bottom">
 				<image mode="widthFix" class="medium-avatar" v-if="author!=null" v-bind:src="author.avatar"></image>
