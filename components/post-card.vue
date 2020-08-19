@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<view v-if="post!=null" class="cu-card article" @tap="toDetails(post.id)">
+		<view v-if="post!=null" class="cu-card article no-card" style="margin-bottom: 20rpx;" @tap="toDetails(post.id)">
 			<view class="cu-item shadow">
 				<view class="title">
 					<view class="text-cut">{{post.title}}</view>

@@ -14,17 +14,17 @@
 				</view>
 				<view v-bind:class="active == 'articles' ? 'text-green' : 'text-gray'">归档</view>
 			</view>
-			<view class="action" @tap="gotoSearchPage()">
+			<!-- <view class="action" @tap="gotoSearchPage()">
 				<view class="cuIcon-cu-image">
 					<text class="lg cuIcon-search" v-bind:class="active == 'search' ? 'text-green' : 'text-gray'"></text>
 				</view>
 				<view v-bind:class="active == 'search' ? 'text-green' : 'text-gray'">搜索</view>
-			</view>
-			<view class="action">
+			</view> -->
+			<view class="action" @tap="gotoMyPage()">
 				<view class="cuIcon-cu-image">
-					<image src="/static/tabbar/about.png"></image>
+					<text class="lg cuIcon-my" v-bind:class="active == 'my' ? 'text-green' : 'text-gray'"></text>
 				</view>
-				<view class="text-gray">我的</view>
+				<view v-bind:class="active == 'my' ? 'text-green' : 'text-gray'">我的</view>
 			</view>
 		</view>
 	</view>
@@ -44,27 +44,33 @@
 			};
 		},
 		onLoad() {
-			console.log(this.active);
 		},
 		methods:{
 			gotoArticlesPage(){
 				if(this.active=='articles') return
-				uni.navigateTo({
+				uni.redirectTo({
 					url:'/pages/articles/articles',
 					animationType:'fade-in'
 				})
 			},
 			gotoIndexPage(){
 				if(this.active=='index') return
-				uni.navigateTo({
+				uni.redirectTo({
 					url:'/pages/index/index',
 					animationType:'fade-in'
 				})
 			},
 			gotoSearchPage(){
 				if(this.active=='search') return
-				uni.navigateTo({
+				uni.redirectTo({
 					url:'/pages/search/search',
+					animationType:'slide-in-left'
+				})
+			},
+			gotoMyPage(){
+				if(this.active=='my') return
+				uni.redirectTo({
+					url:'/pages/my/my',
 					animationType:'slide-in-left'
 				})
 			}

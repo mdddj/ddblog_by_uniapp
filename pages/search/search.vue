@@ -1,8 +1,6 @@
 <template>
 	<view>
 		<cu-custom :isBack="false">
-			<!-- <block slot="backText">返回</block> -->
-			<!-- <block slot="content">搜索</block> -->
 		</cu-custom>
 		<view class="logo">
 			<image src='/static/logo.png' mode="aspectFill"></image>

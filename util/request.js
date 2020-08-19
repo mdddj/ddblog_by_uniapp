@@ -1,7 +1,7 @@
 import uni_request from '../common/uni_request/uni_request.js'
 
 const request =  uni_request({ // 有效配置项只有三个
-	baseURL: 'http://192.168.43.44:8080/api', //baseURL
+	baseURL: 'http://192.168.199.118/api', //baseURL
 	timeout: 10000, // 超时时间
 	header: {
 		'content-type': 'application/json'

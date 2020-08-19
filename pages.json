@@ -1,31 +1,44 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
+		 {
+					"path": "pages/my/my",
+					"style": {}
+				},{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "典典博客"
 			}
+		}, {
+			"path": "pages/detail/article",
+			"style": {}
+		}, {
+			"path": "pages/articles/articles",
+			"style": {}
+		}, {
+			"path": "pages/list/list",
+			"style": {}
+		}, {
+			"path": "pages/search/search",
+			"style": {}
+		}, {
+			"path": "pages/text/text",
+			"style": {}
 		}
-	    ,{
-            "path" : "pages/detail/article",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/articles/articles",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/list/list",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/search/search",
-            "style" : {}
-        }
-    ],
+
+	],
+	"subPackages": [{
+		"root": "package_login",
+		"pages": [{
+				"path": "login/login"
+			}, {
+				"path": "login/register"
+			}
+
+		]
+	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "典典博客",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom"

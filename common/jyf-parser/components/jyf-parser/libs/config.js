@@ -38,20 +38,21 @@ const selfClosingTags = makeMap(
 const blankChar = makeMap(" ,\u00A0,\t,\r,\n,\f");
 // 默认的标签样式
 var userAgentStyles = {
-	a: "color:#366092;word-break:break-all;padding:1.5px 0 1.5px 0",
+	a: "color: #05c896;word-break:break-all;padding:1.5px 0 1.5px 0;",
 	address: "font-style:italic",
 	big: "display:inline;font-size:1.2em",
-	blockquote: "background-color:#f6f6f6;border-left:3px solid #dbdbdb;color:#6c6c6c;padding:5px 0 5px 10px",
+	blockquote: "font-size: 1.125rem;border-left: solid 2px #8f919e;color: #333;padding-left: 20px;line-height: 1.7;margin: 0 0 20px 0;",
 	center: "text-align:center",
 	cite: "font-style:italic",
 	dd: "margin-left:40px",
-	img: "max-width:100%",
+	img: "max-width:100%;margin-top: 20rpx;margin-bottom: 20rpx;",
 	mark: "background-color:yellow",
 	picture: "max-width:100%",
 	pre: "font-family:monospace;white-space:pre;overflow:scroll",
 	s: "text-decoration:line-through",
 	small: "display:inline;font-size:0.8em",
-	u: "text-decoration:underline"
+	u: "text-decoration:underline",
+	p: "margin: 0 0 10px 0;"
 };
 const screenWidth = wx.getSystemInfoSync().screenWidth;
 // #ifdef MP-WEIXIN
@@ -76,11 +77,33 @@ function bubbling(Parser) {
 const hljs = require("highlight.js");
 module.exports = {
 	// 高亮处理函数
-	highlight(content) {
+	highlight(content, attrs) {
 		var info = content.match(/<code[\s\S]+?>([\s\S]+)<\/code>/);
-		  if (!info) return content;
-		  content = info[1].replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/<br\/>/g,'\n').replace(/&quot;/g,'\"');
-		  return hljs.highlightAuto(content).value;
+		if (!info) return content;
+		// 换行符 
+		content = info[1].replace(/&lt;/g, '<').replace(/&amp;/g, '&').replace(/&gt;/g, '>').replace(/&quot;/g, '\"').replace(
+			/<br\/>/g, '\n').replace(/&#x27;/g, '\'').replace(/&#x60;/g, '`');
+		return hljs.highlightAuto(content).value;
+		// attrs["data-content"] = content; // 记录原始文本，用于长按复制等操作
+		// var lan = attrs.match(/"(.*?)"/)[1];
+		//     if (!lan)
+		//       return content; // 没有设置语言
+		//     switch (lan) {
+		//       case "javascript":
+		//       case "js":
+		//         return Prism.highlight(content, Prism.languages.javascript, "javascript");
+		//       case "html":
+		//         return Prism.highlight(content, Prism.languages.html, "html");
+		//       case "css":
+		//         return Prism.highlight(content, Prism.languages.css, "css");
+		// 		case "java":
+		// 		  return Prism.highlight(content, Prism.languages.java, "java");
+		//       case "c":
+		//       case "cpp":
+		//         return Prism.highlight(content, Prism.languages.clike, "clike");
+		//       default:
+		//         return content;
+		//     }
 	},
 	// 处理标签的属性，需要通过组件递归方式显示的标签需要调用 bubbling(Parser)
 	LabelHandler(node, Parser) {
