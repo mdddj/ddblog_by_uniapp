@@ -1,6 +1,8 @@
-# ddBlog-uniApp
+# 关于
 典典博客 Uni-App小程序 版本
-# 本项目已经上线搜典典博客
-![15858248747758139.png](http://picbed.demo.saintic.com/static/upload/huang/2020/04/02/15858248747758139.png)
+# 页面预览
+# ###首页
+![1597808412971.jpg](https://static.saintic.com/picbed/huang/2020/08/19/1597808412971.jpg)
 
-# 项目重启,敬请期待 (2020年8月5日19:23:34)
+####归档页面
+![1597808751187.jpg](https://static.saintic.com/picbed/huang/2020/08/19/1597808751187.jpg)

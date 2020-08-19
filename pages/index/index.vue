@@ -11,7 +11,7 @@
 		</cu-custom>
 		
 		<!-- 轮播图 -->
-		<swiper class="screen-swiper" :class="dotStyle?'square-dot':'round-dot'" :indicator-dots="true" :circular="true"
+		<swiper v-if="carousel.length!=0" class="screen-swiper" :class="dotStyle?'square-dot':'round-dot'" :indicator-dots="true" :circular="true"
 		 :autoplay="true" interval="5000" duration="500" @change="cardSwiper" indicator-color="#8799a3"
 		 indicator-active-color="#0081ff">
 			<swiper-item v-for="(item,index) in carousel" :key="index" :class="cardCur==index?'cur':''" @tap="toDetail(item)">
