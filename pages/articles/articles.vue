@@ -92,7 +92,7 @@
 
 <script>
 	
-	import request from '../../util/request.js';
+	
 	export default {
 		data() {
 			return {
@@ -110,12 +110,7 @@
 		methods: {
 			loadArticles(){
 				this.isLoad=true;
-				request.post('/archives').then(res=>{
-					this.isLoad=false;
-					this.categorys=res.categorys
-					this.times=res.times
-					this.tags=res.tags
-				})
+				
 			},
 			toList(type,key){
 				uni.navigateTo({

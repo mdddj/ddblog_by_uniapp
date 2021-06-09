@@ -83,8 +83,6 @@
 
 <script>
 	import config from '../../util/app_config.js';
-	import request from '../../util/request.js';
-
 	export default {
 		data() {
 			return {
@@ -113,11 +111,7 @@
 			 * 获取博客统计信息
 			 */
 			loadCountData() {
-				request.post("/blog/data").then(res => {
-					if (res.code == 200 && res.data) {
-						this.countData = res.data
-					}
-				})
+				
 			},
 			/**
 			 * 菜单跳转
@@ -132,20 +126,7 @@
 
 			// 用户登入按钮被按下
 			userLoginTap() {
-				// let _this = this;
-				// uni.getUserInfo({
-				// 	provider: 'weixin',
-				// 	success: function(infoRes) {
-				// 		let nickName = infoRes.userInfo.nickName; //昵称
-				// 		let avatarUrl = infoRes.userInfo.avatarUrl; //头像
-				// 		console.log(nickName);
-				// 		try {
-				// 			uni.setStorageSync('isCanUse', false); //记录是否第一次授权  false:表示不是第一次授权
-				// 			// _this.updateUserInfo();
-				// 		} catch (e) {}
-				// 	},
-				// 	fail(res) {}
-				// });
+				
 				uni.redirectTo({
 					url: '/package_login/login/login'
 				})

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-	import request from '../../util/request.js';
+	
 	export default {
 		data() {
 			return {
@@ -50,21 +50,7 @@
 			},
 			handleSearch(page) {
 				this.loading = true
-				request.post('/search', {
-					page,
-					q: this.searchValue
-				}).then(res => {
-					console.log(res);
-					if (page != 1) {
-						this.list = this.list.concat(res.data)
-					} else {
-						this.list = res.data
-					}
-					this.resultData = res
-
-					this.init = true
-					this.loading = false
-				})
+				
 			}
 		},
 		onReachBottom() {

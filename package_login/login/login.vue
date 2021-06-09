@@ -33,7 +33,6 @@
 	var _this;
 	import wInput from '../../components/watch-login/watch-input.vue' //input
 	import wButton from '../../components/watch-login/watch-button.vue' //button
-	import request from '../../util/request.js'
 
 	export default {
 		data() {
@@ -81,32 +80,7 @@
 					return;
 				}
 				_this.isRotate = true // 设置按钮加载中
-				request.post('/wechat/user/login', {
-					username: _this.phoneData,
-					password: _this.passData
-				}).then(res => {
-					console.log(res)
-					if (res.code === 200) {
-
-						// 登入成功
-						// 存入缓存
-						_this.cache.put("token", res.data.token, 60 * 60 * 2); // token两小时有效
-						_this.cache.put("user_info", res.data.user, 60 * 60 * 2); // 用户信息两小时有效
-						uni.showToast({
-							icon: 'none',
-							position: 'bottom',
-							title: '登入成功'
-						});
-						this.toUserHome();
-					}else{
-						uni.showToast({
-							icon: 'none',
-							position: 'bottom',
-							title: '用户名或者密码错误'
-						});
-						_this.isRotate = false
-					}
-				})
+				
 
 
 				setTimeout(function() {

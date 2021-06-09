@@ -46,7 +46,7 @@
 	var _this;
 	import wInput from '../../components/watch-login/watch-input.vue' //input
 	import wButton from '../../components/watch-login/watch-button.vue' //button
-	import request from '../../util/request.js'
+
 
 	export default {
 		data() {
@@ -143,18 +143,7 @@
 				//     return false;
 				// }
 
-				request.post("/wechat/user", {
-					username: this.phoneData,
-					password: this.passData
-				}).then(res => {
-					if(res.code==200){
-						uni.showToast({
-							icon: 'none',
-							position: 'bottom',
-							title: '注册成功'
-						});
-					}
-				})
+				
 				_this.isRotate = true
 				setTimeout(function() {
 					_this.isRotate = false

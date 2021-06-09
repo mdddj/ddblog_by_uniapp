@@ -16,7 +16,6 @@
 </template>
 
 <script>
-	import request from '../../util/request.js';
 	import parser from "@/common/jyf-parser/components/jyf-parser/jyf-parser"
 
 	export default {
@@ -43,16 +42,7 @@
 			this.loadText(key);
 		},
 		methods: {
-			loadText(key) {
-				request.post("/simple/text", {
-					text: key
-				}).then(res => {
-					if (res.code === 200) {
-						console.log(res.data)
-						this.textObject = res.data;
-					}
-				})
-			}
+			
 		}
 	}
 </script>

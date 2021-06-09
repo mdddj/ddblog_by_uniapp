@@ -30,7 +30,6 @@
 </template>
 
 <script>
-	import request from '../../util/request.js'
 	export default {
 		data() {
 			return {
@@ -76,48 +75,15 @@
 		methods: {
 			getCategoryList(id, page) {
 				this.loading = true
-				request.post('/category/articles', {
-					categoryId: id,
-					page
-				}).then(res => {
-					this.cateData = res
-					if (page != 1) {
-						this.cateList = this.cateList.concat(res.list)
-					} else {
-						this.cateList = res.list
-					}
-					this.loading = false
-					this.title=res.info.name
-				})
+				
 			},
 			getTimeList(key, page) {
 				this.loading = true
-				request.post('/category/bytime', {
-					time: key,
-					page
-				}).then(res => {
-					this.timeData = res.data;
-					if (page != 1) {
-						this.timeList = this.timeList.concat(res.list)
-					} else {
-						this.timeList = res.list
-					}
-					this.loading = false
-					this.title=this.key
-				})
+				
 			},
 			getTagList(key,page){
 				this.loading=true
-				request.post('/getListByTag',{id:key,page}).then(res=>{
-					console.log(res);
-					this.tagData=res
-					if(page!=1){
-						this.tagList=this.tagList.concat(res.data)
-					}else{
-					this.tagList=res.data
-					this.title=res.info.name
-					}
-				})
+				
 			}
 		},
 		onReachBottom() {

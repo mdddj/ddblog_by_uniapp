@@ -23,7 +23,6 @@
 </template>
 
 <script>
-	import request from '../../util/request.js'
 	import parser from "@/common/jyf-parser/components/jyf-parser/jyf-parser"
 
 
@@ -45,15 +44,7 @@
 				id
 			} = options;
 			console.log(id);
-			request.post('/findPostDetail', {
-				id,
-				page: 1
-			}).then(res => {
-				console.log(res);
-				this.detail = res.p
-				this.html = res.p.content
-				this.author = res.user
-			})
+			
 		},
 		onShareAppMessage: function(res) {
 			return {
