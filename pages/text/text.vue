@@ -6,7 +6,7 @@
 		</cu-custom>
 		<view class="content-wrap" :style="[{padding:'0 '+pmWidth+'px'}]">
 			<view class="post-content">
-				<jyf-parser v-if='textObject!=null' id='post' :html="textObject.content">加载中...</jyf-parser>
+				
 				<view v-if="textObject==null">没有内容</view>
 			</view>
 		</view>
@@ -16,12 +16,10 @@
 </template>
 
 <script>
-	import parser from "@/common/jyf-parser/components/jyf-parser/jyf-parser"
+
 
 	export default {
-		components: {
-			"jyf-parser": parser
-		},
+		
 		data() {
 			return {
 				textObject: null,

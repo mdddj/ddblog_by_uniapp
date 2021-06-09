@@ -2,7 +2,7 @@
 	<view>
 		<!-- 头部基本信息 -->
 		<view class="UCenter-bg" style="height: 500rpx;">
-			<image v-if="config!=null" v-bind:src="config.logoSrc" class='png cu-avatar round' style="width: 150rpx;height: 150rpx;border: 1rpx solid gray;"
+			<image v-if="config!=null" v-bind:src="require('../../static/ava.jpg')" class='png cu-avatar round' style="width: 150rpx;height: 150rpx;border: 1rpx solid gray;"
 			 mode='widthFix'></image>
 			<view style="padding-top: 65rpx;">
 				<view>

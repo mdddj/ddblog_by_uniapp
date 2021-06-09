@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<view class="post-content">
-				<jyf-parser id='post' :html="html"></jyf-parser>
+				
 			</view>
 		</view>
 
@@ -23,14 +23,11 @@
 </template>
 
 <script>
-	import parser from "@/common/jyf-parser/components/jyf-parser/jyf-parser"
-
+	
 
 
 	export default {
-		components: {
-			"jyf-parser": parser
-		},
+		
 		data() {
 			return {
 				detail: null,
