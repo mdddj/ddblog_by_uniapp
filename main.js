@@ -62,6 +62,9 @@ Vue.component('bottom-nav',BottomNav)
 import cuCustom from './colorui/components/cu-custom.vue'
 Vue.component('cu-custom',cuCustom)
 
+import mpHtml from './common/mp-html/mp-html.vue'
+Vue.component('mp-html',mpHtml)
+
 import PostCard from './components/post-card.vue'
 Vue.component('post-card',PostCard)
 

@@ -9,7 +9,7 @@
 					<text v-if="config!=null" style="font-size: 30rpx;color: #000000;">{{config.title}}</text>
 				</view>
 			</view>
-			<view style="margin-top: 20rpx;">
+			<view style="margin-top: 20rpx;" class="desc">
 				<text v-if="config!=null" style="font-size: 25rpx;color: grey;">{{config.description}}</text>
 			</view>
 		</view>
@@ -152,6 +152,7 @@
 		align-items: center;
 		color: #fff;
 		font-weight: 300;
+		margin-top: 150rpx;
 	}
 
 	.UCenter-bg::after {
@@ -165,6 +166,12 @@
 		right: 0;
 		margin: auto;
 
+	}
+	
+	.desc {
+		text-align: center;
+		margin: 20rpx;
+		padding: 20rpx;
 	}
 
 

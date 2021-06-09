@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<view class="post-content">
-				
+					<mp-html :content="detail?detail.content:''" :markdown='true' />
 			</view>
 		</view>
 
@@ -23,17 +23,14 @@
 </template>
 
 <script>
-	
-
 
 	export default {
-		
 		data() {
 			return {
 				detail: null,
 				html: '',
 				author: null,
-				pmWidth: this.pmWidth
+				pmWidth: this.pmWidth,
 			}
 		},
 		onLoad: function(options) {
@@ -41,16 +38,28 @@
 				id
 			} = options;
 			console.log(id);
-			
+			this.getBlogDetail(id);
+
 		},
 		onShareAppMessage: function(res) {
 			return {
 				title: this.detail.title,
-				path: '/pages/detail/article?id='+this.detail.id,
-				imageUrl: this.detail.cover !='' ? this.detail.cover : 'http://picbed.demo.saintic.com/static/upload/huang/2020/03/30/15855610975052996.png'
+				path: '/pages/detail/article?id=' + this.detail.id,
+				imageUrl: this.detail.cover != '' ? this.detail.cover :
+					'http://picbed.demo.saintic.com/static/upload/huang/2020/03/30/15855610975052996.png'
 			}
 		},
-		methods: {}
+		methods: {
+
+			async getBlogDetail(id) {
+				const result = await this.$request.get('/api/blog/get/' + id)
+				if (result.statusCode == 200 && result.data.state == 200) {
+					console.log(result.data)
+					this.detail = result.data.data
+				}
+			}
+
+		}
 	}
 </script>
 
