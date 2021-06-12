@@ -56,14 +56,7 @@
 			this.isLoad = false
 		},
 		onReachBottom() {
-			const {
-				pager
-			} = this.data;
-			if (pager.current < pager.pages && !this.isLoad) {
-				//还存在下一页
-				this.isLoad = true
-
-			}
+			
 		},
 		methods: {
 

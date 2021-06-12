@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="page">
 		<cu-custom bgColor="bg-gradual-pink" :isBack="true">
 			<block slot="backText"></block>
 			<block slot="content">{{page}}</block>
@@ -7,7 +7,11 @@
 		<view class="content-wrap" :style="[{padding:'0 '+pmWidth+'px'}]">
 			<view class="post-content">
 				
-				<view v-if="textObject==null">没有内容</view>
+				<view v-if="text==null">没有内容</view>
+				
+				<view class="post-content">
+					<mp-html :content="text?text:''" :markdown='true' />
+				</view>
 			</view>
 		</view>
 
@@ -22,7 +26,7 @@
 		
 		data() {
 			return {
-				textObject: null,
+				text: null,
 				page: 'loading...',
 				pmWidth:this.pmWidth
 			}
@@ -41,10 +45,27 @@
 		},
 		methods: {
 			
+			loadText(name){
+				var _this = this;
+				this.$request.get('/api/blog/text',{
+					data:{
+						'name':name
+					}
+				}).then(res=>{
+					console.log(res.data);
+					_this.text = res.data.data.context;
+				})
+			}
 		}
 	}
 </script>
 
 <style>
 
+.post-content{
+	padding: 12rpx;
+}
+.page{
+	background-color: white;
+}
 </style>

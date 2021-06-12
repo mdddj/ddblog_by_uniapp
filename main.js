@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App'
+import store from './store/index.js'
 
 
 // 引入插件
@@ -50,7 +51,7 @@ request.interceptors.response(res => {
 
 // // 挂载到全局vue实例上，在页面中可以使用this.$request调用request实例下相应方法
 Vue.prototype.$request = request;
-
+Vue.prototype.$store = store;
 
 
 
@@ -71,6 +72,7 @@ Vue.component('post-card',PostCard)
 App.mpType = 'app'
 
 const app = new Vue({
-    ...App
+    ...App,
+	store
 })
 app.$mount()

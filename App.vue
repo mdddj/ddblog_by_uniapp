@@ -34,6 +34,8 @@
 			})
 		},
 		onShow: function() {
+			
+			this.$store.dispatch('loadCounts')
 		},
 		onHide: function() {
 		}

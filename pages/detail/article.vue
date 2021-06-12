@@ -15,7 +15,7 @@
 				</view>
 			</view>
 			<view class="post-content">
-					<mp-html :content="detail?detail.content:''" :markdown='true' />
+				<mp-html :content="detail?detail.content:''" :markdown='true' />
 			</view>
 		</view>
 
@@ -23,7 +23,6 @@
 </template>
 
 <script>
-
 	export default {
 		data() {
 			return {
@@ -64,5 +63,11 @@
 </script>
 
 <style>
+	.content-wrap {
+		background-color: white;
+	}
 
+	.post-content {
+		padding-bottom: 30rpx;
+	}
 </style>

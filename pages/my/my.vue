@@ -18,22 +18,22 @@
 		<!-- 博客数据 -->
 		<view class="padding flex text-center text-grey bg-white">
 			<view class="flex flex-sub flex-direction solid-right">
-				<view class="text-xxl text-orange">{{countData.articleCount}}</view>
+				<view class="text-xxl text-orange number">{{countData.blogCount}}</view>
 				<view class="margin-top-sm">
 					<text class="cuIcon-news" style="margin-right: 5rpx;"></text> 博客</view>
 			</view>
 			<view class="flex flex-sub flex-direction solid-right">
-				<view class="text-xxl text-blue">{{countData.categoryCount}}</view>
+				<view class="text-xxl text-blue number">{{countData.cateCount}}</view>
 				<view class="margin-top-sm">
 					<text class="cuIcon-file" style="margin-right: 5rpx;"></text> 分类</view>
 			</view>
 			<view class="flex flex-sub flex-direction solid-right">
-				<view class="text-xxl text-green">{{countData.tagCount}}</view>
+				<view class="text-xxl text-green number">{{countData.tagCount}}</view>
 				<view class="margin-top-sm">
 					<text class="cuIcon-tag" style="margin-right: 5rpx;"></text> 标签</view>
 			</view>
 			<view class="flex flex-sub flex-direction">
-				<view class="text-xxl text-green">{{countData.linkCount}}</view>
+				<view class="text-xxl text-green number">0</view>
 				<view class="margin-top-sm">
 					<text class="cuIcon-link" style="margin-right: 5rpx;"></text> 友链</view>
 			</view>
@@ -43,7 +43,7 @@
 		<!-- 菜单列表 -->
 		<view class="cu-list menu margin-top">
 			<!-- 打赏 -->
-			<view class="cu-item arrow" @tap="gotoTextPage('pay','赞赏支持')">
+			<view class="cu-item arrow" @tap="gotoTextPage('打赏','打赏')">
 				<view class="content">
 					<text class="cuIcon-moneybag text-grey"></text>
 					<text class="text-grey">打赏支持</text>
@@ -59,12 +59,12 @@
 			</view>
 
 			<!-- 更新日志 -->
-			<view class="cu-item arrow" @tap="gotoTextPage('log','日志')">
+			<!-- <view class="cu-item arrow" @tap="gotoTextPage('log','日志')">
 				<view class="content">
 					<text class="cuIcon-new text-grey"></text>
 					<text class="text-grey">更新记录</text>
 				</view>
-			</view>
+			</view> -->
 
 			<!-- 关于 -->
 			<view class="cu-item arrow" @tap="gotoTextPage('about','关于')">
@@ -102,16 +102,16 @@
 		methods: {
 
 			getCacheUserInfo() {
-				const userInfo = this.cache.get("user_info");
-				console.log(userInfo);
-				this.user_info = userInfo;
+				
 			},
 
 			/**
 			 * 获取博客统计信息
 			 */
 			loadCountData() {
-				
+				console.log('获取博客统计信息')
+				console.log(this.$store.state.counts)
+				this.countData = this.$store.state.counts;
 			},
 			/**
 			 * 菜单跳转
@@ -199,5 +199,9 @@
 	.mapBox {
 		width: 750rpx;
 		height: 300rpx;
+	}
+	
+	.number {
+		font-weight: 700;
 	}
 </style>

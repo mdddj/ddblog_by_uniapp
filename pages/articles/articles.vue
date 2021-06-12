@@ -27,10 +27,10 @@
 		<view class="cu-list menu" v-if="TabCur==0">
 			<view class="cu-item arrow" v-for="(item,index) in categorys" :key="index" v-if="item.size!==0" @tap="toList('cate',item.categoryId)">
 				<view class="content">
-					<text class="text-grey">{{item.categoryName}}</text>
+					<text class="text-grey">{{item.name}}</text>
 				</view>
 				<view class="action">
-					<text class="text-grey text-sm">{{item.size}}篇</text>
+					<text class="text-grey text-sm"></text>
 				</view>
 			</view>
 		</view>
@@ -39,7 +39,7 @@
 		<view class="cu-list menu" v-if="TabCur==1">
 			<view class="cu-item arrow" v-for="(item,index) in times" :key="index" @tap="toList('time',item.time)">
 				<view class="content">
-					<text class="text-grey">{{item.time}}</text>
+					<text class="text-grey">{{item.months}}</text>
 				</view>
 				<view class="action">
 					<text class="text-grey text-sm">{{item.count}}篇</text>
@@ -54,38 +54,12 @@
 					<text class="text-grey">{{item.name}}</text>
 				</view>
 				<view class="action">
-					<text class="text-grey text-sm">{{item.count}}篇</text>
+					<text class="text-grey text-sm"></text>
 				</view>
 			</view>
 		</view>
 		
-		<!-- 
-		<view class="cu-bar margin-top bg-white solid-bottom">
-			<view class="action">
-				<text class="cuIcon-title text-blue"></text>按分类
-			</view>
-		</view>
-		<view class="padding flex flex-wrap bg-white">
-			<button class="cu-btn margin-bottom-xs margin-right-xs"  v-for="(item,index) in categorys" :key="index" @tap="toList('cate',item.categoryId)">{{item.categoryName}}({{item.size}}篇)</button>
-		</view>
 		
-		<view class="cu-bar margin-top bg-white solid-bottom">
-			<view class="action">
-				<text class="cuIcon-title text-blue"></text>按时间
-			</view>
-		</view>
-		<view class="padding flex flex-wrap bg-white">
-			<button class="cu-btn margin-bottom-xs margin-right-xs" v-for="(item,index) in times" :key="index" @tap="toList('time',item.time)">{{item.time}}({{item.count}}篇)</button>
-		</view>
-		
-		<view class="cu-bar margin-top bg-white solid-bottom">
-			<view class="action">
-				<text class="cuIcon-title text-blue"></text>按标签
-			</view>
-		</view>
-		<view class="padding flex flex-wrap bg-white">
-			<button class="cu-btn margin-bottom-xs margin-right-xs" v-for="(item,index) in tags" :key="index" @tap="toList('tag',item.id)">{{item.name}}({{item.count}}篇)</button>
-		</view> -->
 		<bottom-nav :active='pageName'></bottom-nav>
 	</view>
 </template>
@@ -110,7 +84,13 @@
 		methods: {
 			loadArticles(){
 				this.isLoad=true;
+				console.log(this.$store.state.counts)
+				var obj = this.$store.state.counts;
+				this.tags = obj.tags;
+				this.categorys = obj.categoryList;
+				this.times = obj.monthsCounts;
 				
+				this.isLoad = false;
 			},
 			toList(type,key){
 				uni.navigateTo({
