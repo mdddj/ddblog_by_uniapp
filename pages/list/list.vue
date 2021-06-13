@@ -13,7 +13,7 @@
 		<scroll-view v-if="type=='cate' && cateData" v-for="(item, index) in cateList" :key="index">
 			<post-card :post='item'></post-card>
 		</scroll-view>
-		<view class="not-more" v-if="type=='cate' && cateData && cateData.data.current==cateData.data.pages || cateData.data.pages==0">没有更多了</view>
+		<view class="not-more" v-if="type=='cate' && cateData && cateData.paged">没有更多了</view>
 
 		<!-- 按时间归档 -->
 		<scroll-view v-if="type=='time' && timeData" v-for="(item, index) in timeList" :key="index">
@@ -48,7 +48,8 @@
 		onLoad: function(options) {
 			const {
 				type,
-				key
+				key,
+				title
 			} = options;
 			// 缺少参数返回上一页
 			if (!type || !key) {
@@ -59,6 +60,7 @@
 
 			this.type = type
 			this.key = key
+			this.title = title
 
 			switch (type) {
 				case 'cate':
@@ -73,17 +75,53 @@
 			}
 		},
 		methods: {
-			getCategoryList(id, page) {
+			async getCategoryList(id, page) {
 				this.loading = true
-				
+				const result =await this.$request.get('/api/blog/category/blogs',{
+					data:{
+						'categoryId': id,
+						'page':page,
+						'pageSize':10
+					}
+				})
+			
+				if(result.statusCode == 200 && result.data.state==200){
+					this.cateList = this.cateList.concat(result.data.data.list)
+					this.cateData = result.data.data.page;
+				}
+				this.loading = false
 			},
-			getTimeList(key, page) {
+			async getTimeList(key, page) {
 				this.loading = true
-				
+				const result =await this.$request.get('/api/blog/month/blogs',{
+					data:{
+						'month': key,
+						'page':page,
+						'pageSize':10
+					}
+				})
+							
+				if(result.statusCode == 200 && result.data.state==200){
+					this.timeList = this.timeList.concat(result.data.data.list)
+					this.timeData = result.data.data.page;
+				}
+				this.loading = false;
 			},
-			getTagList(key,page){
+			async getTagList(key,page){
 				this.loading=true
-				
+				const result =await this.$request.get('/api/blog/tag/blogs',{
+					data:{
+						'tagId': key,
+						'page':page,
+						'pageSize':10
+					}
+				})
+							
+				if(result.statusCode == 200 && result.data.state==200){
+					this.tagList = this.tagList.concat(result.data.data.list)
+					this.tagData = result.data.data.page;
+				}
+				this.loading = false;
 			}
 		},
 		onReachBottom() {
@@ -107,6 +145,7 @@
 <style>
 	.not-more {
 		text-align: center;
-		margin: 10rpx 0;
+		margin: 20rpx 0;
+		color: rgb(140, 140, 140)
 	}
 </style>

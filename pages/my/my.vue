@@ -2,11 +2,11 @@
 	<view>
 		<!-- 头部基本信息 -->
 		<view class="UCenter-bg" style="height: 500rpx;">
-			<image v-if="config!=null" v-bind:src="require('../../static/ava.jpg')" class='png cu-avatar round' style="width: 150rpx;height: 150rpx;border: 1rpx solid gray;"
-			 mode='widthFix'></image>
+			<image v-if="config!=null" v-bind:src="require('../../static/ava.png')" class='cu-avatar xl round'
+				mode='aspectFill'></image>
 			<view style="padding-top: 65rpx;">
 				<view>
-					<text v-if="config!=null" style="font-size: 30rpx;color: #000000;">{{config.title}}</text>
+					<text v-if="config!=null" style="font-size: 50rpx;color: #000000;font-weight: 700;">{{config.title}}</text>
 				</view>
 			</view>
 			<view style="margin-top: 20rpx;" class="desc">
@@ -20,22 +20,26 @@
 			<view class="flex flex-sub flex-direction solid-right">
 				<view class="text-xxl text-orange number">{{countData.blogCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-news" style="margin-right: 5rpx;"></text> 博客</view>
+					<text class="cuIcon-news" style="margin-right: 5rpx;"></text> 博客
+				</view>
 			</view>
 			<view class="flex flex-sub flex-direction solid-right">
 				<view class="text-xxl text-blue number">{{countData.cateCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-file" style="margin-right: 5rpx;"></text> 分类</view>
+					<text class="cuIcon-file" style="margin-right: 5rpx;"></text> 分类
+				</view>
 			</view>
 			<view class="flex flex-sub flex-direction solid-right">
 				<view class="text-xxl text-green number">{{countData.tagCount}}</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-tag" style="margin-right: 5rpx;"></text> 标签</view>
+					<text class="cuIcon-tag" style="margin-right: 5rpx;"></text> 标签
+				</view>
 			</view>
 			<view class="flex flex-sub flex-direction">
 				<view class="text-xxl text-green number">0</view>
 				<view class="margin-top-sm">
-					<text class="cuIcon-link" style="margin-right: 5rpx;"></text> 友链</view>
+					<text class="cuIcon-link" style="margin-right: 5rpx;"></text> 友链
+				</view>
 			</view>
 		</view>
 		<!-- 博客数据end -->
@@ -102,7 +106,7 @@
 		methods: {
 
 			getCacheUserInfo() {
-				
+
 			},
 
 			/**
@@ -126,7 +130,7 @@
 
 			// 用户登入按钮被按下
 			userLoginTap() {
-				
+
 				uni.redirectTo({
 					url: '/package_login/login/login'
 				})
@@ -167,7 +171,7 @@
 		margin: auto;
 
 	}
-	
+
 	.desc {
 		text-align: center;
 		margin: 20rpx;
@@ -200,7 +204,7 @@
 		width: 750rpx;
 		height: 300rpx;
 	}
-	
+
 	.number {
 		font-weight: 700;
 	}

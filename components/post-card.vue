@@ -1,22 +1,22 @@
 <template>
 	<view>
-		<view v-if="post!=null" class="cu-card article no-card" style="margin-bottom: 20rpx;" @tap="toDetails(post.id)">
-			<view class="cu-item shadow">
-				<view class="cate">
-					<text class="cuIcon-file cate-icon"></text><text>{{post.category.name}}</text>
-				</view>
-				<view class="title">
-					<view class="text-cut post-title">{{post.title}}</view>
-				</view>
-				<view class="content">
-					<image v-if="post.thumbnail" v-bind:src="post.thumbnail" mode="aspectFill"></image>
-					<view class="desc">
-						<view>
-							<view v-for="(tag,tagIndex) in post.tags" :key="tagIndex"
-								class="cu-tag bg-red light sm round">{{tag.name}}</view>
-						</view>
+		<view v-if="post!=null" class="post-warp" @tap="toDetails(post.id)">
+			<view class="title-warp">
+				<text>{{post.title}}</text>
+			</view>
+			<view class="time-wrap">
+				<image class="cu-avatar round sm " v-bind:src="require('../static/ava.png')"></image><text>梁典典发布于{{post.dateString}}</text>
+			</view>
+
+			<view class="redmore">
+				<view class="flex">
+					<view class="flex-sub margin-xs tag">
+						<view class='cu-tag'><text class="cuIcon-file text-grey icon"></text>{{post.category.name}}</view>
+					</view>
+					<view class="flex-sub margin-xs link"><text>继续阅读<text class="cuIcon-right text-grey"></text></text>
 					</view>
 				</view>
+
 			</view>
 		</view>
 	</view>
@@ -46,28 +46,48 @@
 </script>
 
 <style>
-	.cate {
-		display: inline-block;
-		padding-left: 30rpx;
-		padding-right: 30rpx;
-		padding-bottom: 12rpx;
-		padding-top: 12rpx;
-		color: white;
-		text-align: center;
-		border-radius: 7px;
-		background-color: #0070f3;
-		box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
-		color: white;
-		margin-left: 30rpx;
-		margin-top: 15rpx;
+	.post-warp {
+		padding: 20rpx;
+		background-color: white;
+		border-top: 1rpx solid rgb(238, 238, 238);
+		border-bottom: 1rpx solid rgb(238, 238, 238);
+		margin-bottom: -1rpx;
+	
 	}
 
-	.cate-icon {
-		margin-right: 5rpx;
+	.title-warp {}
+
+	.title-warp text {
+		font-weight: 700;
+		font-size: large
+	}
+
+	.time-wrap {
+		margin-top: 12rpx;
+		margin-bottom: 20rpx;
+		color: #696969;
+		font-size: 22rpx;
 	}
 	
-	.post-title{
-		font-weight: 700;
-		font-size: 40rpx;
+	.time-wrap image{
+		margin-right: 12rpx;
+	}
+
+	.redmore {
+		margin-top: 50rpx;
+	}
+
+
+	
+	.redmore .tag{
+		text-align: left;
+	}
+	
+	.redmore .link{
+		text-align: right;
+	}
+	
+	.redmore .icon {
+		margin-right: 5rpx;
 	}
 </style>

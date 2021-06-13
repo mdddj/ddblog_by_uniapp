@@ -25,7 +25,7 @@
 		
 		<!-- 按分类 -->
 		<view class="cu-list menu" v-if="TabCur==0">
-			<view class="cu-item arrow" v-for="(item,index) in categorys" :key="index" v-if="item.size!==0" @tap="toList('cate',item.categoryId)">
+			<view class="cu-item arrow" v-for="(item,index) in categorys" :key="index" v-if="item.size!==0" @tap="toList('cate',item.id,item.name)">
 				<view class="content">
 					<text class="text-grey">{{item.name}}</text>
 				</view>
@@ -37,7 +37,7 @@
 		
 		<!-- 按时间 -->
 		<view class="cu-list menu" v-if="TabCur==1">
-			<view class="cu-item arrow" v-for="(item,index) in times" :key="index" @tap="toList('time',item.time)">
+			<view class="cu-item arrow" v-for="(item,index) in times" :key="index" @tap="toList('time',item.months,item.months)">
 				<view class="content">
 					<text class="text-grey">{{item.months}}</text>
 				</view>
@@ -49,7 +49,7 @@
 		
 		<!-- 按标签 -->
 		<view class="cu-list menu" v-if="TabCur==2">
-			<view class="cu-item arrow" v-for="(item,index) in tags" :key="index" v-if="item.count!==0" @tap="toList('tag',item.id)">
+			<view class="cu-item arrow" v-for="(item,index) in tags" :key="index" v-if="item.count!==0" @tap="toList('tag',item.id,item.name)">
 				<view class="content">
 					<text class="text-grey">{{item.name}}</text>
 				</view>
@@ -92,9 +92,9 @@
 				
 				this.isLoad = false;
 			},
-			toList(type,key){
+			toList(type,key,title){
 				uni.navigateTo({
-					url:'/pages/list/list?type='+type+'&key='+key
+					url:'/pages/list/list?type='+type+'&key='+key+'&title='+title
 				})
 			},
 			tabSelect(e) {
