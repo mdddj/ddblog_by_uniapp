@@ -28,6 +28,25 @@
 		</scroll-view>
 		<!-- 博客列表END -->
 		<view class="cu-load" :class="isLoad?'loading':'over'"></view>
+		
+		
+		
+		<!-- 模态框 -->
+		<view class="cu-modal" :class="modalName=='Modal'?'show':''">
+					<view class="cu-dialog">
+						<view class="cu-bar bg-white justify-end">
+							<view class="content">通知</view>
+							<view class="action" @tap="hideModal">
+								<text class="cuIcon-close text-red"></text>
+							</view>
+						</view>
+						<view class="padding-xl">
+							{{showText}}
+						</view>
+					</view>
+				</view>
+		
+		
 		<bottom-nav :active='pageName'></bottom-nav>
 	</view>
 </template>
@@ -43,16 +62,17 @@
 				carousel: [],
 				cardCur: 0,
 				page: 1,
-				pageSize: 10
+				pageSize: 10,
+				modalName:'',
+				showText: ''
 			}
 		},
 		onLoad() {
 			this.isLoad = true
-
-
 			this.getBlogs();
 			// 加载轮播图
 			this.loadCarousel();
+			this.getDialogInfo()
 			this.isLoad = false
 		},
 		onReachBottom() {
@@ -87,6 +107,21 @@
 				uni.navigateTo({
 					url: item.url
 				})
+			},
+			async getDialogInfo(){
+				const result = await this.$request.get('/api/blog/text',{
+					data:{
+						'name': 'dialog'
+					}
+				})
+				console.log(result)
+				if(result.statusCode==200 && result.data.state==200 && result.data.data.context!=''){
+					this.modalName = 'Modal'
+					this.showText = result.data.data.context
+				}
+			},
+			hideModal(){
+				this.modalName = ''
 			}
 		}
 	}
