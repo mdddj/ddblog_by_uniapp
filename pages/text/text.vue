@@ -53,7 +53,9 @@
 					}
 				}).then(res=>{
 					console.log(res.data);
-					_this.text = res.data.data.context;
+					if(res.data.state==200){
+						_this.text = res.data.data.context;
+					}
 				})
 			}
 		}

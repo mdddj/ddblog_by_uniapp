@@ -62,13 +62,12 @@
 				</view>
 			</view>
 
-			<!-- 更新日志 -->
-			<!-- <view class="cu-item arrow" @tap="gotoTextPage('log','日志')">
+			<view class="cu-item arrow" @tap="gotoTextPage('images','相册')">
 				<view class="content">
 					<text class="cuIcon-new text-grey"></text>
-					<text class="text-grey">更新记录</text>
+					<text class="text-grey">我的相册</text>
 				</view>
-			</view> -->
+			</view>
 
 			<!-- 关于 -->
 			<view class="cu-item arrow" @tap="gotoTextPage('about','关于')">
