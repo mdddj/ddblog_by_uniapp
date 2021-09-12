@@ -1,0 +1,68 @@
+
+.title {
+	text-align: center;
+}
+.UCenter-bg {
+	background-size: cover;
+	height: 300rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	overflow: hidden;
+	position: relative;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	color: #fff;
+	font-weight: 300;
+	margin-top: 150rpx;
+}
+.UCenter-bg::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	background-color: #f1f1f1;
+	-webkit-transform: rotate(-10deg) scale(2, 2);
+	        transform: rotate(-10deg) scale(2, 2);
+	bottom: -60vw;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+.desc {
+	text-align: center;
+	margin: 20rpx;
+	padding: 20rpx;
+}
+.UCenter-bg .gif-wave {
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	z-index: 99;
+	mix-blend-mode: screen;
+	height: 100rpx;
+}
+map,
+.mapBox {
+	left: 0;
+	z-index: 99;
+	mix-blend-mode: screen;
+	height: 100rpx;
+}
+map,
+.mapBox {
+	width: 750rpx;
+	height: 300rpx;
+}
+.number {
+	font-weight: 700;
+}
+
