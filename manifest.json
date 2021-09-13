@@ -71,5 +71,13 @@
     },
     "mp-toutiao" : {
         "usingComponents" : true
+    },
+    "mp-qq" : {
+        "appid" : "1112024709",
+        "setting" : {
+            "es6" : true,
+            "postcss" : true,
+            "minified" : true
+        }
     }
 }

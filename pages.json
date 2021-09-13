@@ -15,9 +15,6 @@
 			"path": "pages/list/list",
 			"style": {}
 		}, {
-			"path": "pages/search/search",
-			"style": {}
-		}, {
 			"path": "pages/text/text",
 			"style": {}
 		}, {
@@ -26,16 +23,6 @@
 		}
 
 	],
-	"subPackages": [{
-		"root": "package_login",
-		"pages": [{
-				"path": "login/login"
-			}, {
-				"path": "login/register"
-			}
-
-		]
-	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "典典博客",
