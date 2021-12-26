@@ -36,7 +36,7 @@
 				</view>
 			</view>
 			<view class="flex flex-sub flex-direction">
-				<view class="text-xxl text-green number">0</view>
+				<view class="text-xxl text-green number">{{links.length}}</view>
 				<view class="margin-top-sm">
 					<text class="cuIcon-link" style="margin-right: 5rpx;"></text> 友链
 				</view>
@@ -94,13 +94,15 @@
 				countData: {},
 				app_version: this.app_version,
 				app_bg: 'http://picbed.demo.saintic.com/static/upload/huang/2020/04/02/15858063094785930.jpg',
-				user_info: null
+				user_info: null,
+				links: []
 			}
 		},
 		onLoad() {
 			this.config = config
 			this.loadCountData();
 			this.getCacheUserInfo(); // 从缓存获取已登入用户信息
+			this.getLinks();
 		},
 		methods: {
 
@@ -133,6 +135,19 @@
 				uni.redirectTo({
 					url: '/package_login/login/login'
 				})
+			},
+			
+			/// 加载友链的数据
+			async getLinks() {
+				const result = await this.$request.get('/api/friend/list',{
+					data: {
+						'state': '1'
+					}
+				})
+				console.log(result)
+				if(result.statusCode==200){
+					this.links = result.data.data;
+				}
 			}
 
 		}

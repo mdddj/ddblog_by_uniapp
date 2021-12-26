@@ -70,8 +70,6 @@
 		onLoad() {
 			this.isLoad = true
 			this.getBlogs();
-			// 加载轮播图
-			this.loadCarousel();
 			this.getDialogInfo()
 			this.isLoad = false
 		},
@@ -96,9 +94,7 @@
 				
 			},
 
-			loadCarousel() {
-
-			},
+			
 			// cardSwiper
 			cardSwiper(e) {
 				this.cardCur = e.detail.current
@@ -122,7 +118,9 @@
 			},
 			hideModal(){
 				this.modalName = ''
-			}
+			},
+			
+			
 		}
 	}
 </script>
