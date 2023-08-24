@@ -76,9 +76,16 @@
 					<text class="text-grey">关于</text>
 				</view>
 			</view>
+			<view class="cu-item arrow" @tap="getCopyWebsit()">
+				<view class="content">
+					<text class="cuIcon-copy text-grey"></text>
+					<text class="text-grey">博客前台网址https://itbug.shop</text>
+				</view>
+			</view>
+			
 		</view>
 		<!-- 菜单列表 -->
-
+		
 
 		<bottom-nav :active='pageName'></bottom-nav>
 	</view>
@@ -104,7 +111,19 @@
 			this.getCacheUserInfo(); // 从缓存获取已登入用户信息
 			this.getLinks();
 		},
+		onShareAppMessage: function(res) {
+			return {
+				title: this.detail.title,
+				path: '/pages/my/my'
+			}
+		},
 		methods: {
+			
+			getCopyWebsit(){
+					uni.setClipboardData({
+						data: "https://itbug.shop"
+					})
+			},
 
 			getCacheUserInfo() {
 
@@ -114,8 +133,6 @@
 			 * 获取博客统计信息
 			 */
 			loadCountData() {
-				console.log('获取博客统计信息')
-				console.log(this.$store.state.counts)
 				this.countData = this.$store.state.counts;
 			},
 			/**
@@ -144,7 +161,6 @@
 						'state': '1'
 					}
 				})
-				console.log(result)
 				if(result.statusCode==200){
 					this.links = result.data.data;
 				}

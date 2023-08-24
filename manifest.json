@@ -79,5 +79,8 @@
             "postcss" : true,
             "minified" : true
         }
+    },
+    "mp-lark" : {
+        "appid" : "cli_a4518a193ab9900d"
     }
 }

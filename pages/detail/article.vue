@@ -36,7 +36,6 @@
 			const {
 				id
 			} = options;
-			console.log(id);
 			this.getBlogDetail(id);
 
 		},

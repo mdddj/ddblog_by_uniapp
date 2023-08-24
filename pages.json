@@ -22,7 +22,25 @@
 			"style": {}
 		}
 
-	],
+	    ,{
+            "path" : "pages/images/images",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "相册",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/resource/resource",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "动态",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "典典博客",

@@ -1,0 +1,35 @@
+
+.post-warp {
+	padding: 20rpx;
+	background-color: white;
+	border-top: 1rpx solid rgb(238, 238, 238);
+	border-bottom: 1rpx solid rgb(238, 238, 238);
+	margin-bottom: -1rpx;
+}
+.title-warp {}
+.title-warp text {
+	font-weight: 700;
+	font-size: large
+}
+.time-wrap {
+	margin-top: 12rpx;
+	margin-bottom: 20rpx;
+	color: #696969;
+	font-size: 22rpx;
+}
+.time-wrap image{
+	margin-right: 12rpx;
+}
+.redmore {
+	margin-top: 50rpx;
+}
+.redmore .tag{
+	text-align: left;
+}
+.redmore .link{
+	text-align: right;
+}
+.redmore .icon {
+	margin-right: 5rpx;
+}
+

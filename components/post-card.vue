@@ -55,6 +55,11 @@
 	
 	}
 
+	.c-icon {
+		width: 8rpx;
+		height: 8rpx;
+	}
+
 	.title-warp {}
 
 	.title-warp text {

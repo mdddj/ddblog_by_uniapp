@@ -14,12 +14,12 @@
 				</view>
 				<view v-bind:class="active == 'articles' ? 'text-green' : 'text-gray'">归档</view>
 			</view>
-			<!-- <view class="action" @tap="gotoSearchPage()">
+			<view class="action" @tap="gotoImagesPage()">
 				<view class="cuIcon-cu-image">
-					<text class="lg cuIcon-search" v-bind:class="active == 'search' ? 'text-green' : 'text-gray'"></text>
+					<text class="lg cuIcon-pic" v-bind:class="active == 'images' ? 'text-green' : 'text-gray'"></text>
 				</view>
-				<view v-bind:class="active == 'search' ? 'text-green' : 'text-gray'">搜索</view>
-			</view> -->
+				<view v-bind:class="active == 'images' ? 'text-green' : 'text-gray'">相册</view>
+			</view>
 			<view class="action" @tap="gotoMyPage()">
 				<view class="cuIcon-cu-image">
 					<text class="lg cuIcon-my" v-bind:class="active == 'my' ? 'text-green' : 'text-gray'"></text>
@@ -46,6 +46,13 @@
 		onLoad() {
 		},
 		methods:{
+			gotoImagesPage(){
+				if(this.active=='images') return
+				uni.redirectTo({
+					url:'/pages/images/images',
+					animationType:'fade-in'
+				})
+			},
 			gotoArticlesPage(){
 				if(this.active=='articles') return
 				uni.redirectTo({

@@ -81,10 +81,15 @@
 		onLoad() {
 			this.loadArticles();
 		},
+		onShareAppMessage: function(res) {
+			return {
+				title: this.detail.title,
+				path: '/pages/articles/articles'
+			}
+		},
 		methods: {
 			loadArticles(){
 				this.isLoad=true;
-				console.log(this.$store.state.counts)
 				var obj = this.$store.state.counts;
 				this.tags = obj.tags;
 				this.categorys = obj.categoryList;

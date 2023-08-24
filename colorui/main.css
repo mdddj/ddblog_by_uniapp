@@ -2232,17 +2232,17 @@ button.cuIcon.lg {
 	border-radius: 10upx;
 }
 
-.cu-card.dynamic {
+.cu-card .dynamic {
 	display: block;
 }
 
-.cu-card.dynamic>.cu-item {
+.cu-card .dynamic>.cu-item {
 	display: block;
 	background-color: #ffffff;
 	overflow: hidden;
 }
 
-.cu-card.dynamic>.cu-item>.text-content {
+.cu-card .dynamic>.cu-item>.text-content {
 	padding: 0 30upx 0;
 	max-height: 6.4em;
 	overflow: hidden;

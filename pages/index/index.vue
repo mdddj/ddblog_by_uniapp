@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<cu-custom :isBack="false">
+		<cu-custom bgColor="bg-gradual-pink" :isBack="false">
 			<block slot="backText">返回</block>
 			<block slot="content">首页</block>
 			<block slot="right">
@@ -73,8 +73,11 @@
 			this.getDialogInfo()
 			this.isLoad = false
 		},
-		onReachBottom() {
-			
+		onShareAppMessage: function(res) {
+			return {
+				title: this.detail.title,
+				path: '/pages/index/index'
+			}
 		},
 		methods: {
 

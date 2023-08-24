@@ -1,0 +1,8 @@
+
+.post-content{
+	padding: 12rpx;
+}
+.page{
+	background-color: white;
+}
+

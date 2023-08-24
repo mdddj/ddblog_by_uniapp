@@ -7,7 +7,7 @@
 			uni.getSystemInfo({
 				success: function(e) {
 					
-					console.log(e)
+		
 					
 					// #ifndef MP
 					Vue.prototype.StatusBar = e.statusBarHeight;
@@ -31,6 +31,11 @@
 					// #endif
 					
 					// #ifdef MP-QQ
+					Vue.prototype.StatusBar = e.statusBarHeight;
+					Vue.prototype.CustomBar = e.statusBarHeight + 45;
+					// #endif
+					
+					// #ifdef MP-LARK	
 					Vue.prototype.StatusBar = e.statusBarHeight;
 					Vue.prototype.CustomBar = e.statusBarHeight + 45;
 					// #endif
